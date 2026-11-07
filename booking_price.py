@@ -40,5 +40,5 @@ def booking_total(seat_price, seats, promo_discount=0):
         raise ValueError(f"Кількість місць має бути від 1 до {MAX_SEATS}")
     discount = _money(promo_discount, "Знижка")
 
-    total = max(price * seats - discount, Decimal("0"))
+    total = price * seats - discount
     return total.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
